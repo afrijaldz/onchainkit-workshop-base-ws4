@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Source_Code_Pro } from "next/font/google";
-import { RootProvider } from "./rootProvider";
-import "./globals.css";
+import { RootProvider } from "@/providers/root";
+import "./global.css";
+import { Navbar } from "@/components/Navbar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,9 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${sourceCodePro.variable}`}>
-        <RootProvider>{children}</RootProvider>
+        <RootProvider>
+          <Navbar />
+          {children}
+        </RootProvider>
       </body>
     </html>
   );

@@ -18,13 +18,13 @@ export function WalletComponents() {
   return (
     <div className="flex justify-end">
       <Wallet>
-        <ConnectWallet className="bg-blue-800" disconnectedLabel="Log In">
+        <ConnectWallet disconnectedLabel="Connect Wallet">
           <Avatar className="h-6 w-6" />
           <Name className="text-white" />
         </ConnectWallet>
         <WalletDropdown>
           <Identity
-            className="px-4 pt-3 pb-2 hover:bg-blue-200"
+            className="px-4 pt-3 pb-2 hover:bg-blue-300"
             hasCopyAddressOnClick
           >
             <Avatar />
@@ -46,7 +46,7 @@ export function WalletComponents() {
           >
             Setting
           </WalletDropdownLink>
-          <WalletDropdownDisconnect className="hover:bg-blue-200" />
+          <WalletDropdownDisconnect />
         </WalletDropdown>
       </Wallet>
     </div>
