@@ -15,20 +15,8 @@ export default function HomePage() {
       >
         <CardContent>Transaction</CardContent>
       </Card>
-      <Card>
-        <CardContent>
-          <p>Card Content</p>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardContent>
-          <p>Card Content</p>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardContent>
-          <p>Card Content</p>
-        </CardContent>
+      <Card onClick={() => router.push("/swap")} className="cursor-pointer">
+        <CardContent>Swap</CardContent>
       </Card>
     </div>
   );
