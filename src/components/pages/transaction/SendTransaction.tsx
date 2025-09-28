@@ -15,7 +15,9 @@ import { useChainId } from "wagmi";
 
 export default function SendTransaction() {
   const [recipient, setRecipient] = useState<Address>();
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState<string>("");
+
+  console.log({ amount });
 
   const chainId = useChainId();
   const isValid = useMemo(() => !!recipient && !!amount, [recipient, amount]);
@@ -32,7 +34,9 @@ export default function SendTransaction() {
         placeholder="Amount in ETH"
         className="mb-4"
         value={amount}
-        onChange={(e) => setAmount(e.target.value)}
+        onChange={(e) => {
+          setAmount(e.target.value);
+        }}
       />
       <Transaction
         resetAfter={5000}
@@ -40,7 +44,7 @@ export default function SendTransaction() {
         calls={[
           {
             to: recipient as Address,
-            value: BigInt(amount) * BigInt(1e18),
+            value: amount ? BigInt(Number(amount) * 1e18) : BigInt(0),
           },
         ]}
         onStatus={(status) => {
